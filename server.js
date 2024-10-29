@@ -7,8 +7,13 @@ const adminRouter = require("./Routes/adminRoutes");
 const connectDB = require('./database/connection');
 const app = express();
 const session = require('express-session');
+const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 const dotenv = require("dotenv");
 dotenv.config()
+require('dotenv').config();
+console.log("Loaded Environment Variables:", process.env);
+
 // Initialize session middleware
 app.use(session({
   secret: 'secret', // Replace with a strong and secure secret
@@ -18,6 +23,8 @@ app.use(session({
 }));
 
 connectDB(); // Ensure this function correctly connects to your database
+
+
 
 const port = 3000;
 

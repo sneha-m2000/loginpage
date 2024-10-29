@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const userCollection = require("../models/userCollection");
+const dotenv = require("dotenv")
+dotenv.config()
+
 
 const adminCredentials = {
     email: process.env.ADMIN_EMAIL,
@@ -16,6 +19,13 @@ router.get("/", (req, res) => {
 router.post("/login", async (req, res) => {
     try {
         const { email, password } = req.body;
+
+         // Debug: Check if admin credentials from .env are loaded correctly
+         console.log("Admin credentials from .env:", adminCredentials);
+
+         // Debug: Check the email and password received from the login form
+         console.log("User input - Email:", email);
+         console.log("User input - Password:", password);
 
         if (email === adminCredentials.email && password === adminCredentials.password) {
             const userDetails = await userCollection.find();
