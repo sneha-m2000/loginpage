@@ -1,0 +1,93 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light gray background */
+  }
+  
+  /* Center the login form vertically and horizontally */
+  .center-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+  }
+  
+  /* Container style */
+  .container {
+    background-color: #ffffff; /* White background */
+    border-radius: 10px;
+  }
+  
+  /* Title style */
+  .title {
+    text-align: center;
+  }
+  
+  .title h2 {
+    color: #198754; /* Bootstrap success color */
+  }
+  
+  /* Form group style */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  /* Form control style */
+  .form-control {
+    border-color: #198754; /* Bootstrap success color for border */
+  }
+  
+  /* Error message style */
+  .text-danger {
+    color: red;
+    font-size: 0.875rem; /* Adjust font size for error messages */
+  }
+  
+  /* Button style */
+  .btn-success {
+    background-color: #198754; /* Bootstrap success color */
+    border-color: #198754; /* Bootstrap success color for border */
+  }
+  
+  .btn-success:hover {
+    background-color: #155724; /* Darker shade of green for hover */
+    border-color: #155724; /* Darker shade of green for hover */
+  }
+  
+  /* Link style */
+  a {
+    color: #198754; /* Bootstrap success color for links */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Alert style */
+  .alert {
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+
+  .custom-alert {
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.custom-alert.alert-success {
+    background-color: rgba(76, 175, 80, 0.7); /* Light green */
+    color: white;
+}
+
+.custom-alert.alert-danger {
+    background-color: rgba(255, 0, 0, 0.7); /* Light red */
+    color: white;
+}
+
+  

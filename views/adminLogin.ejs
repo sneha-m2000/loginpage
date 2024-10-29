@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Lilita+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Set background color and image */
+        body {
+            background-color: black; /* Black background color */
+            background-image: url('./asset/backgroundImageOfAdminLogin.jpg'); /* Correct path */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: 'Playfair Display', serif; /* Updated font style */
+            background-blend-mode: overlay; /* Blend background image with color */
+        }
+
+        /* Style the login container with a transparent background */
+        .login-container {
+            background: rgba(0, 0, 0, 0.7); /* Darker transparent background */
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-success {
+            background-color: darkgreen; /* Custom button color */
+            border: none;
+            color: white; /* Text color for button */
+        }
+
+        .btn-success:hover {
+            background-color: #006400; /* Darker green on hover */
+        }
+
+        .text-danger {
+            margin-top: 5px;
+        }
+        
+       
+        
+    </style>
+</head>
+<body>
+
+    <!-- Login Container -->
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        <% if (message) { %>
+            <div class="alert alert-danger text-center" role="alert">
+                <%= message %>
+            </div>
+        <% } %>
+        <form action="/admin/login" method="POST" onsubmit="return validateForm()">
+            <div class="form-group mb-3">
+                <input type="email" class="form-control" placeholder="Email" name="email" id="email" />
+                <div id="emailError" class="text-danger"></div>
+            </div>
+
+            <div class="form-group mb-3">
+                <input type="password" class="form-control" placeholder="Password" name="password" id="password" />
+                <div id="passwordError" class="text-danger"></div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-success w-100 rounded-pill">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Form Validation Script -->
+    <script>
+        function validateForm() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var emailError = document.getElementById('emailError');
+            var passwordError = document.getElementById('passwordError');
+
+            // Reset previous error messages
+            emailError.innerHTML = "";
+            passwordError.innerHTML = "";
+
+            // Validate email
+            if (email.trim() === "") {
+                emailError.innerHTML = "Email cannot be empty";
+                return false;
+            }
+
+            // Validate password
+            if (password.trim() === "") {
+                passwordError.innerHTML = "Password cannot be empty";
+                return false;
+            }
+
+            return true; // Allow form submission
+        }
+    </script>
+
+</body>
+</html>
